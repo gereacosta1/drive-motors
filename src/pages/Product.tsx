@@ -12,7 +12,7 @@ function Product() {
   const { slug } = useParams()
 
   const product = products.find(
-    (item) => item.slug === slug
+    (item) => item.slug === slug,
   )
 
   if (!product) {
@@ -36,7 +36,11 @@ function Product() {
             </p>
 
             <Link to="/catalog">
-              <ArrowLeft size={17} />
+              <ArrowLeft
+                size={17}
+                aria-hidden="true"
+              />
+
               Back to inventory
             </Link>
           </div>
@@ -57,16 +61,30 @@ function Product() {
 
       <main className="product-page">
         {/* PRODUCT HERO */}
-        <section className="product-hero">
-          <div className="product-hero__grid" />
-          <div className="product-hero__glow" />
+        <section
+          className="product-hero"
+          aria-labelledby="product-title"
+        >
+          <div
+            className="product-hero__grid"
+            aria-hidden="true"
+          />
+
+          <div
+            className="product-hero__glow"
+            aria-hidden="true"
+          />
 
           <div className="product-hero__container">
             <Link
               to="/catalog"
               className="product-hero__back"
             >
-              <ArrowLeft size={15} />
+              <ArrowLeft
+                size={15}
+                aria-hidden="true"
+              />
+
               Back to inventory
             </Link>
 
@@ -80,6 +98,7 @@ function Product() {
                         ? 'product-hero__status-dot product-hero__status-dot--available'
                         : 'product-hero__status-dot'
                     }
+                    aria-hidden="true"
                   />
 
                   {product.available
@@ -91,9 +110,15 @@ function Product() {
                   src={product.image}
                   alt={`${product.name} ${product.color}`}
                   className="product-hero__image"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                 />
 
-                <span className="product-hero__image-index">
+                <span
+                  className="product-hero__image-index"
+                  aria-hidden="true"
+                >
                   DRIVE / 01
                 </span>
               </div>
@@ -101,11 +126,14 @@ function Product() {
               {/* INFORMATION */}
               <div className="product-hero__content">
                 <div className="product-hero__eyebrow">
-                  <span />
+                  <span aria-hidden="true" />
+
                   {product.brand} / {product.displacement}
                 </div>
 
-                <h1>{product.name}</h1>
+                <h1 id="product-title">
+                  {product.name}
+                </h1>
 
                 <p className="product-hero__description">
                   {product.description}
@@ -143,14 +171,22 @@ function Product() {
                     className="product-hero__primary"
                   >
                     Ask about this bike
-                    <ArrowRight size={18} />
+
+                    <ArrowRight
+                      size={18}
+                      aria-hidden="true"
+                    />
                   </Link>
 
                   <Link
                     to="/contact"
                     className="product-hero__location"
                   >
-                    <MapPin size={16} />
+                    <MapPin
+                      size={16}
+                      aria-hidden="true"
+                    />
+
                     Visit DRIVE
                   </Link>
                 </div>
@@ -168,23 +204,35 @@ function Product() {
             </div>
           </div>
 
-          <span className="product-hero__background-text">
+          <span
+            className="product-hero__background-text"
+            aria-hidden="true"
+          >
             250
           </span>
         </section>
 
         {/* DETAILS */}
-        <section className="product-details">
+        <section
+          className="product-details"
+          aria-labelledby="product-details-title"
+        >
           <div className="product-details__container">
             <div className="product-details__heading">
               <div>
-                <span className="product-details__index">
+                <span
+                  className="product-details__index"
+                  aria-hidden="true"
+                >
                   01
                 </span>
 
                 <div>
                   <span>Motorcycle details</span>
-                  <h2>THE MACHINE.</h2>
+
+                  <h2 id="product-details-title">
+                    THE MACHINE.
+                  </h2>
                 </div>
               </div>
 
@@ -196,7 +244,9 @@ function Product() {
 
             <div className="product-details__grid">
               <div className="product-details__feature">
-                <span>01</span>
+                <span aria-hidden="true">
+                  01
+                </span>
 
                 <h3>250CC Engine</h3>
 
@@ -207,7 +257,9 @@ function Product() {
               </div>
 
               <div className="product-details__feature">
-                <span>02</span>
+                <span aria-hidden="true">
+                  02
+                </span>
 
                 <h3>Street Focused</h3>
 
@@ -218,7 +270,9 @@ function Product() {
               </div>
 
               <div className="product-details__feature">
-                <span>03</span>
+                <span aria-hidden="true">
+                  03
+                </span>
 
                 <h3>Available Locally</h3>
 
@@ -232,13 +286,18 @@ function Product() {
         </section>
 
         {/* RELATED */}
-        <section className="product-related">
+        <section
+          className="product-related"
+          aria-labelledby="product-related-title"
+        >
           <div className="product-related__container">
             <div className="product-related__header">
               <div>
-                <span>02 / Keep exploring</span>
+                <span>
+                  02 / Keep exploring
+                </span>
 
-                <h2>
+                <h2 id="product-related-title">
                   MORE
                   <br />
                   <span>RIDES.</span>
@@ -247,7 +306,11 @@ function Product() {
 
               <Link to="/catalog">
                 View full inventory
-                <ArrowRight size={17} />
+
+                <ArrowRight
+                  size={17}
+                  aria-hidden="true"
+                />
               </Link>
             </div>
 
@@ -257,15 +320,20 @@ function Product() {
                   key={related.id}
                   to={`/product/${related.slug}`}
                   className="product-related__card"
+                  aria-label={`View ${related.name} details`}
                 >
                   <div className="product-related__image">
                     <img
                       src={related.image}
-                      alt={related.name}
+                      alt={`${related.name} ${related.color}`}
                       loading="lazy"
+                      decoding="async"
                     />
 
-                    <div className="product-related__arrow">
+                    <div
+                      className="product-related__arrow"
+                      aria-hidden="true"
+                    >
                       <ArrowRight size={17} />
                     </div>
                   </div>
@@ -276,7 +344,9 @@ function Product() {
                       <h3>{related.name}</h3>
                     </div>
 
-                    <strong>{related.displacement}</strong>
+                    <strong>
+                      {related.displacement}
+                    </strong>
                   </div>
                 </Link>
               ))}

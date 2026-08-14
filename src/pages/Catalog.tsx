@@ -21,14 +21,14 @@ function Catalog() {
       new Set(
         products
           .map((product) => product.brand)
-          .filter((brand) => brand && brand !== 'DRIVE')
-      )
+          .filter((brand) => brand && brand !== 'DRIVE'),
+      ),
     ).sort()
   }, [])
 
   const colors = useMemo(() => {
     return Array.from(
-      new Set(products.map((product) => product.color))
+      new Set(products.map((product) => product.color)),
     ).sort()
   }, [])
 
@@ -62,9 +62,20 @@ function Catalog() {
   }
 
   const scrollToInventory = () => {
-    document
-      .getElementById('catalog-inventory')
-      ?.scrollIntoView({ behavior: 'smooth' })
+    const inventory = document.getElementById('catalog-inventory')
+
+    if (!inventory) {
+      return
+    }
+
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+
+    inventory.scrollIntoView({
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      block: 'start',
+    })
   }
 
   return (
@@ -73,20 +84,29 @@ function Catalog() {
 
       <main className="catalog-page">
         {/* HERO */}
-        <section className="catalog-hero">
-          <div className="catalog-hero__grid" />
+        <section
+          className="catalog-hero"
+          aria-labelledby="catalog-title"
+        >
+          <div
+            className="catalog-hero__grid"
+            aria-hidden="true"
+          />
 
-          <div className="catalog-hero__glow" />
+          <div
+            className="catalog-hero__glow"
+            aria-hidden="true"
+          />
 
           <div className="catalog-hero__container">
             <div className="catalog-hero__eyebrow">
-              <span />
+              <span aria-hidden="true" />
               DRIVE / Motorcycle Inventory
             </div>
 
             <div className="catalog-hero__main">
               <div>
-                <h1>
+                <h1 id="catalog-title">
                   FIND YOUR
                   <br />
                   <span>NEXT RIDE.</span>
@@ -105,7 +125,10 @@ function Catalog() {
                     <span>Motorcycles</span>
                   </div>
 
-                  <div className="catalog-hero__stats-line" />
+                  <div
+                    className="catalog-hero__stats-line"
+                    aria-hidden="true"
+                  />
 
                   <div>
                     <strong>250CC</strong>
@@ -119,13 +142,21 @@ function Catalog() {
               type="button"
               className="catalog-hero__scroll"
               onClick={scrollToInventory}
+              aria-label="Scroll to motorcycle inventory"
             >
-              <ArrowDown size={16} />
+              <ArrowDown
+                size={16}
+                aria-hidden="true"
+              />
+
               Browse inventory
             </button>
           </div>
 
-          <div className="catalog-hero__number">
+          <div
+            className="catalog-hero__number"
+            aria-hidden="true"
+          >
             250
           </div>
         </section>
@@ -134,17 +165,24 @@ function Catalog() {
         <section
           className="catalog-inventory"
           id="catalog-inventory"
+          aria-labelledby="catalog-inventory-title"
         >
           <div className="catalog-inventory__container">
             <div className="catalog-inventory__heading">
               <div>
-                <span className="catalog-inventory__index">
+                <span
+                  className="catalog-inventory__index"
+                  aria-hidden="true"
+                >
                   01
                 </span>
 
                 <div>
                   <span>Available motorcycles</span>
-                  <h2>Inventory</h2>
+
+                  <h2 id="catalog-inventory-title">
+                    Inventory
+                  </h2>
                 </div>
               </div>
 

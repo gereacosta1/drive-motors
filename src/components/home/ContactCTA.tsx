@@ -1,23 +1,35 @@
-import { ArrowRight, ArrowUpRight, MapPin, MessageCircle } from 'lucide-react'
+import {
+  ArrowRight,
+  ArrowUpRight,
+  MapPin,
+  MessageCircle,
+} from 'lucide-react'
 import { Link } from 'react-router'
+
 import './ContactCTA.css'
 
 function ContactCTA() {
   return (
-    <section className="contact-cta">
+    <section
+      className="contact-cta"
+      aria-labelledby="contact-cta-title"
+    >
       <div className="contact-cta__container">
-        <div className="contact-cta__number">
+        <div
+          className="contact-cta__number"
+          aria-hidden="true"
+        >
           03
         </div>
 
         <div className="contact-cta__eyebrow">
-          <span />
+          <span aria-hidden="true" />
           03 / Ready to ride?
         </div>
 
         <div className="contact-cta__main">
           <div className="contact-cta__heading">
-            <h2>
+            <h2 id="contact-cta-title">
               YOUR NEXT
               <br />
               <span>RIDE STARTS</span>
@@ -33,14 +45,26 @@ function ContactCTA() {
             </p>
 
             <div className="contact-cta__actions">
-              <Link to="/contact" className="contact-cta__primary">
+              <Link
+                to="/contact"
+                className="contact-cta__primary"
+              >
                 Contact DRIVE
-                <ArrowRight size={18} />
+                <ArrowRight
+                  size={18}
+                  aria-hidden="true"
+                />
               </Link>
 
-              <Link to="/catalog" className="contact-cta__secondary">
+              <Link
+                to="/catalog"
+                className="contact-cta__secondary"
+              >
                 Browse inventory
-                <ArrowUpRight size={16} />
+                <ArrowUpRight
+                  size={16}
+                  aria-hidden="true"
+                />
               </Link>
             </div>
           </div>
@@ -48,7 +72,10 @@ function ContactCTA() {
 
         <div className="contact-cta__bottom">
           <div className="contact-cta__location">
-            <div className="contact-cta__icon">
+            <div
+              className="contact-cta__icon"
+              aria-hidden="true"
+            >
               <MapPin size={20} />
             </div>
 
@@ -59,10 +86,16 @@ function ContactCTA() {
             </div>
           </div>
 
-          <div className="contact-cta__divider" />
+          <div
+            className="contact-cta__divider"
+            aria-hidden="true"
+          />
 
           <div className="contact-cta__help">
-            <div className="contact-cta__icon">
+            <div
+              className="contact-cta__icon"
+              aria-hidden="true"
+            >
               <MessageCircle size={20} />
             </div>
 
@@ -73,8 +106,15 @@ function ContactCTA() {
             </div>
           </div>
 
-          <Link to="/contact" className="contact-cta__round-link">
-            <ArrowUpRight size={23} />
+          <Link
+            to="/contact"
+            className="contact-cta__round-link"
+            aria-label="Contact DRIVE"
+          >
+            <ArrowUpRight
+              size={23}
+              aria-hidden="true"
+            />
           </Link>
         </div>
       </div>

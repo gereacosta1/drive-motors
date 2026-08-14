@@ -1,3 +1,7 @@
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -45,26 +49,30 @@
 }
 
 
-/* Basic animation helpers */
+/* =========================================================
+   ANIMATION HELPERS
+========================================================= */
 
 .fade-up {
-  animation: fadeUp 0.7s ease both;
+  animation: fadeUp 700ms ease both;
 }
 
 .fade-in {
-  animation: fadeIn 0.7s ease both;
+  animation: fadeIn 700ms ease both;
 }
 
 .fade-left {
-  animation: fadeLeft 0.7s ease both;
+  animation: fadeLeft 700ms ease both;
 }
 
 .scale-in {
-  animation: scaleIn 0.7s ease both;
+  animation: scaleIn 700ms ease both;
 }
 
 
-/* Optional delays */
+/* =========================================================
+   DELAYS
+========================================================= */
 
 .delay-1 {
   animation-delay: 80ms;

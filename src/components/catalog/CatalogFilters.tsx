@@ -37,18 +37,30 @@ function CatalogFilters({
     <div className="catalog-filters">
       <div className="catalog-filters__top">
         <div className="catalog-filters__title">
-          <SlidersHorizontal size={16} />
+          <SlidersHorizontal
+            size={16}
+            aria-hidden="true"
+          />
+
           <span>Filter inventory</span>
         </div>
 
-        <div className="catalog-filters__count">
+        <div
+          className="catalog-filters__count"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
           {resultCount} {resultCount === 1 ? 'motorcycle' : 'motorcycles'}
         </div>
       </div>
 
       <div className="catalog-filters__controls">
         <label className="catalog-filters__search">
-          <Search size={17} />
+          <Search
+            size={17}
+            aria-hidden="true"
+          />
 
           <input
             type="search"
@@ -64,7 +76,10 @@ function CatalogFilters({
               onClick={() => onSearchChange('')}
               aria-label="Clear search"
             >
-              <X size={15} />
+              <X
+                size={15}
+                aria-hidden="true"
+              />
             </button>
           )}
         </label>
@@ -76,10 +91,15 @@ function CatalogFilters({
             value={selectedBrand}
             onChange={(event) => onBrandChange(event.target.value)}
           >
-            <option value="all">All brands</option>
+            <option value="all">
+              All brands
+            </option>
 
             {brands.map((brand) => (
-              <option key={brand} value={brand}>
+              <option
+                key={brand}
+                value={brand}
+              >
                 {brand}
               </option>
             ))}
@@ -93,10 +113,15 @@ function CatalogFilters({
             value={selectedColor}
             onChange={(event) => onColorChange(event.target.value)}
           >
-            <option value="all">All colors</option>
+            <option value="all">
+              All colors
+            </option>
 
             {colors.map((color) => (
-              <option key={color} value={color}>
+              <option
+                key={color}
+                value={color}
+              >
                 {color}
               </option>
             ))}
@@ -109,7 +134,11 @@ function CatalogFilters({
             className="catalog-filters__reset"
             onClick={onReset}
           >
-            <X size={15} />
+            <X
+              size={15}
+              aria-hidden="true"
+            />
+
             Reset filters
           </button>
         )}

@@ -1,27 +1,43 @@
+import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 
 import Home from './pages/Home'
-import Catalog from './pages/Catalog'
-import Product from './pages/Product'
-import Contact from './pages/Contact'
-import NotFound from './pages/NotFound'
+
+const Catalog = lazy(() => import('./pages/Catalog'))
+const Product = lazy(() => import('./pages/Product'))
+const Contact = lazy(() => import('./pages/Contact'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
+    <Suspense fallback={null}>
+      <Routes>
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
-      <Route path="/catalog" element={<Catalog />} />
+        <Route
+          path="/catalog"
+          element={<Catalog />}
+        />
 
-      <Route
-        path="/product/:slug"
-        element={<Product />}
-      />
+        <Route
+          path="/product/:slug"
+          element={<Product />}
+        />
 
-      <Route path="/contact" element={<Contact />} />
+        <Route
+          path="/contact"
+          element={<Contact />}
+        />
 
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
+      </Routes>
+    </Suspense>
   )
 }
 

@@ -1,4 +1,5 @@
 import { SearchX } from 'lucide-react'
+
 import type { Product } from '../../types/product'
 import ProductCard from './ProductCard'
 
@@ -9,8 +10,15 @@ interface ProductGridProps {
 function ProductGrid({ products }: ProductGridProps) {
   if (products.length === 0) {
     return (
-      <div className="product-grid__empty">
-        <div className="product-grid__empty-icon">
+      <div
+        className="product-grid__empty"
+        role="status"
+        aria-live="polite"
+      >
+        <div
+          className="product-grid__empty-icon"
+          aria-hidden="true"
+        >
           <SearchX size={30} />
         </div>
 

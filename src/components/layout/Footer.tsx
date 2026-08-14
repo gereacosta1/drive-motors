@@ -1,15 +1,21 @@
 import { ArrowUp, ArrowUpRight, MapPin } from 'lucide-react'
 import { Link } from 'react-router'
+
 import driveLogo from '../../assets/logo/drive-logo.png'
+
 import './Footer.css'
 
 function Footer() {
   const currentYear = new Date().getFullYear()
 
   const scrollToTop = () => {
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
     })
   }
 
@@ -19,10 +25,18 @@ function Footer() {
         {/* TOP */}
         <div className="footer__top">
           <div className="footer__brand">
-            <Link to="/" className="footer__logo">
+            <Link
+              to="/"
+              className="footer__logo"
+              aria-label="DRIVE Motorcycles home"
+            >
               <img
                 src={driveLogo}
                 alt="DRIVE Motorcycles"
+                width={2176}
+                height={723}
+                loading="lazy"
+                decoding="async"
               />
             </Link>
 
@@ -31,17 +45,25 @@ function Footer() {
               Find your next ride in South Florida.
             </p>
 
-            <Link to="/catalog" className="footer__inventory-link">
+            <Link
+              to="/catalog"
+              className="footer__inventory-link"
+            >
               Explore inventory
-              <ArrowUpRight size={16} />
+              <ArrowUpRight
+                size={16}
+                aria-hidden="true"
+              />
             </Link>
           </div>
 
           <div className="footer__navigation">
             <div className="footer__column">
-              <span className="footer__label">Navigation</span>
+              <span className="footer__label">
+                Navigation
+              </span>
 
-              <nav>
+              <nav aria-label="Footer navigation">
                 <Link to="/">Home</Link>
                 <Link to="/catalog">Inventory</Link>
                 <Link to="/contact">Contact</Link>
@@ -49,9 +71,11 @@ function Footer() {
             </div>
 
             <div className="footer__column">
-              <span className="footer__label">Motorcycles</span>
+              <span className="footer__label">
+                Motorcycles
+              </span>
 
-              <nav>
+              <nav aria-label="Motorcycle navigation">
                 <Link to="/catalog">Falcon 250</Link>
                 <Link to="/catalog">Titan 250</Link>
                 <Link to="/catalog">Carrera 250</Link>
@@ -60,15 +84,21 @@ function Footer() {
             </div>
 
             <div className="footer__column footer__column--location">
-              <span className="footer__label">Visit DRIVE</span>
+              <span className="footer__label">
+                Visit DRIVE
+              </span>
 
               <a
                 href="https://www.google.com/maps/search/?api=1&query=1406+S+State+Road+7+Hollywood+FL+33023"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="footer__address"
+                aria-label="Open DRIVE Motorcycles location in Google Maps"
               >
-                <MapPin size={18} />
+                <MapPin
+                  size={18}
+                  aria-hidden="true"
+                />
 
                 <div>
                   <strong>1406 S State Road 7</strong>
@@ -76,16 +106,25 @@ function Footer() {
                 </div>
               </a>
 
-              <Link to="/contact" className="footer__directions">
+              <Link
+                to="/contact"
+                className="footer__directions"
+              >
                 Contact & location
-                <ArrowUpRight size={15} />
+                <ArrowUpRight
+                  size={15}
+                  aria-hidden="true"
+                />
               </Link>
             </div>
           </div>
         </div>
 
         {/* LARGE BRAND WORD */}
-        <div className="footer__wordmark">
+        <div
+          className="footer__wordmark"
+          aria-hidden="true"
+        >
           <span>DRIVE</span>
         </div>
 
@@ -106,7 +145,11 @@ function Footer() {
             aria-label="Back to top"
           >
             <span>Back to top</span>
-            <ArrowUp size={16} />
+
+            <ArrowUp
+              size={16}
+              aria-hidden="true"
+            />
           </button>
         </div>
       </div>

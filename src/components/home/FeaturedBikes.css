@@ -194,6 +194,15 @@
   transform: translateX(4px);
 }
 
+.featured__view-all:focus-visible {
+  color: var(--color-primary);
+
+  border-color: var(--color-primary);
+
+  outline: 2px solid var(--color-primary);
+  outline-offset: 5px;
+}
+
 
 /* =========================================================
    GRID
@@ -233,6 +242,16 @@
   min-width: 0;
 
   color: inherit;
+}
+
+.featured__card:focus-visible {
+  outline: none;
+}
+
+.featured__card:focus-visible
+.featured__image-wrapper {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
 }
 
 .featured__image-wrapper {
@@ -413,7 +432,7 @@
   background:
     var(--color-primary);
 
-  color: #fff;
+  color: #090909;
 
   transform:
     rotate(5deg)
@@ -841,7 +860,14 @@
     background:
       var(--color-primary);
 
+    color: #090909;
+
     transform: translateY(-2px);
+  }
+
+  .featured__mobile-action a:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
   }
 
   .featured__mobile-action svg {
@@ -854,7 +880,7 @@
   }
 
   .featured__mobile-action a:hover svg {
-    color: #fff;
+    color: #090909;
 
     transform: translateX(3px);
   }
@@ -881,5 +907,28 @@
 
   .featured__specs {
     gap: 22px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .featured__view-all,
+  .featured__view-all svg,
+  .featured__image,
+  .featured__open,
+  .featured__mobile-action a,
+  .featured__mobile-action svg {
+    transition: none;
+  }
+
+  .featured__card:hover .featured__image,
+  .featured__card:hover .featured__open,
+  .featured__view-all:hover svg,
+  .featured__mobile-action a:hover,
+  .featured__mobile-action a:hover svg {
+    transform: none;
   }
 }

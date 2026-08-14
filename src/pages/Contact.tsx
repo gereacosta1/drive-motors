@@ -25,24 +25,41 @@ function Contact() {
 
       <main className="contact-page">
         {/* HERO */}
-        <section className="contact-hero">
-          <div className="contact-hero__grid" />
-          <div className="contact-hero__glow" />
+        <section
+          className="contact-hero"
+          aria-labelledby="contact-title"
+        >
+          <div
+            className="contact-hero__grid"
+            aria-hidden="true"
+          />
+
+          <div
+            className="contact-hero__glow"
+            aria-hidden="true"
+          />
 
           <div className="contact-hero__container">
-            <Link to="/" className="contact-hero__back">
-              <ArrowLeft size={15} />
+            <Link
+              to="/"
+              className="contact-hero__back"
+            >
+              <ArrowLeft
+                size={15}
+                aria-hidden="true"
+              />
+
               Back home
             </Link>
 
             <div className="contact-hero__layout">
               <div className="contact-hero__content">
                 <div className="contact-hero__eyebrow">
-                  <span />
+                  <span aria-hidden="true" />
                   DRIVE / Hollywood, Florida
                 </div>
 
-                <h1>
+                <h1 id="contact-title">
                   COME
                   <br />
                   <span>SEE US.</span>
@@ -57,11 +74,15 @@ function Contact() {
                   <a
                     href={mapsUrl}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="contact-hero__primary"
                   >
                     Get directions
-                    <Navigation size={17} />
+
+                    <Navigation
+                      size={17}
+                      aria-hidden="true"
+                    />
                   </a>
 
                   <Link
@@ -69,7 +90,11 @@ function Contact() {
                     className="contact-hero__secondary"
                   >
                     View inventory
-                    <ArrowRight size={16} />
+
+                    <ArrowRight
+                      size={16}
+                      aria-hidden="true"
+                    />
                   </Link>
                 </div>
               </div>
@@ -77,46 +102,73 @@ function Contact() {
               <div className="contact-hero__visual">
                 <img
                   src={showroomImage}
-                  alt="DRIVE Motorcycles location in Hollywood Florida"
+                  alt="DRIVE Motorcycles location in Hollywood, Florida"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                 />
 
-                <div className="contact-hero__image-overlay" />
+                <div
+                  className="contact-hero__image-overlay"
+                  aria-hidden="true"
+                />
 
                 <div className="contact-hero__location-card">
-                  <MapPin size={19} />
+                  <MapPin
+                    size={19}
+                    aria-hidden="true"
+                  />
 
                   <div>
                     <span>DRIVE Motorcycles</span>
-                    <strong>1406 S State Road 7</strong>
-                    <small>Hollywood, FL 33023</small>
+
+                    <strong>
+                      1406 S State Road 7
+                    </strong>
+
+                    <small>
+                      Hollywood, FL 33023
+                    </small>
                   </div>
                 </div>
 
-                <span className="contact-hero__image-label">
+                <span
+                  className="contact-hero__image-label"
+                  aria-hidden="true"
+                >
                   HOLLYWOOD / FL / USA
                 </span>
               </div>
             </div>
           </div>
 
-          <span className="contact-hero__background-word">
+          <span
+            className="contact-hero__background-word"
+            aria-hidden="true"
+          >
             DRIVE
           </span>
         </section>
 
         {/* LOCATION DETAILS */}
-        <section className="contact-location">
+        <section
+          className="contact-location"
+          aria-labelledby="contact-location-title"
+        >
           <div className="contact-location__container">
             <div className="contact-location__heading">
               <div>
-                <span className="contact-location__index">
+                <span
+                  className="contact-location__index"
+                  aria-hidden="true"
+                >
                   01
                 </span>
 
                 <div>
                   <span>Our location</span>
 
-                  <h2>
+                  <h2 id="contact-location-title">
                     VISIT
                     <br />
                     DRIVE.
@@ -133,9 +185,14 @@ function Contact() {
             <div className="contact-location__grid">
               <div className="contact-location__card">
                 <div className="contact-location__card-top">
-                  <span>01</span>
+                  <span aria-hidden="true">
+                    01
+                  </span>
 
-                  <div className="contact-location__icon">
+                  <div
+                    className="contact-location__icon"
+                    aria-hidden="true"
+                  >
                     <MapPin size={22} />
                   </div>
                 </div>
@@ -153,18 +210,27 @@ function Contact() {
                 <a
                   href={mapsUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Open in Google Maps
-                  <ArrowUpRight size={16} />
+
+                  <ArrowUpRight
+                    size={16}
+                    aria-hidden="true"
+                  />
                 </a>
               </div>
 
               <div className="contact-location__card">
                 <div className="contact-location__card-top">
-                  <span>02</span>
+                  <span aria-hidden="true">
+                    02
+                  </span>
 
-                  <div className="contact-location__icon">
+                  <div
+                    className="contact-location__icon"
+                    aria-hidden="true"
+                  >
                     <Bike size={22} />
                   </div>
                 </div>
@@ -181,15 +247,24 @@ function Contact() {
 
                 <Link to="/catalog">
                   Browse inventory
-                  <ArrowUpRight size={16} />
+
+                  <ArrowUpRight
+                    size={16}
+                    aria-hidden="true"
+                  />
                 </Link>
               </div>
 
               <div className="contact-location__card contact-location__card--dark">
                 <div className="contact-location__card-top">
-                  <span>03</span>
+                  <span aria-hidden="true">
+                    03
+                  </span>
 
-                  <div className="contact-location__icon">
+                  <div
+                    className="contact-location__icon"
+                    aria-hidden="true"
+                  >
                     <Navigation size={22} />
                   </div>
                 </div>
@@ -207,10 +282,14 @@ function Contact() {
                 <a
                   href={mapsUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   Get directions
-                  <ArrowUpRight size={16} />
+
+                  <ArrowUpRight
+                    size={16}
+                    aria-hidden="true"
+                  />
                 </a>
               </div>
             </div>
@@ -218,15 +297,18 @@ function Contact() {
         </section>
 
         {/* MAP CTA */}
-        <section className="contact-map-cta">
+        <section
+          className="contact-map-cta"
+          aria-labelledby="contact-map-title"
+        >
           <div className="contact-map-cta__container">
             <div className="contact-map-cta__eyebrow">
-              <span />
+              <span aria-hidden="true" />
               South Florida Motorcycle Dealer
             </div>
 
             <div className="contact-map-cta__main">
-              <h2>
+              <h2 id="contact-map-title">
                 READY TO
                 <br />
                 <span>VISIT?</span>
@@ -241,17 +323,24 @@ function Contact() {
                 <a
                   href={mapsUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="contact-map-cta__button"
                 >
                   Open directions
-                  <Navigation size={17} />
+
+                  <Navigation
+                    size={17}
+                    aria-hidden="true"
+                  />
                 </a>
               </div>
             </div>
 
             <div className="contact-map-cta__address">
-              <MapPin size={18} />
+              <MapPin
+                size={18}
+                aria-hidden="true"
+              />
 
               <span>
                 1406 S State Road 7 · Hollywood, FL 33023

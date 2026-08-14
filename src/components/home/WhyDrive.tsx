@@ -1,20 +1,31 @@
-import { ArrowUpRight, MapPin, ShieldCheck, Bike, Headphones } from 'lucide-react'
+import {
+  ArrowUpRight,
+  MapPin,
+  ShieldCheck,
+  Bike,
+  Headphones,
+} from 'lucide-react'
 import { Link } from 'react-router'
+
 import showroomImage from '../../assets/images/showroom.jpeg'
+
 import './WhyDrive.css'
 
 function WhyDrive() {
   return (
-    <section className="why-drive">
+    <section
+      className="why-drive"
+      aria-labelledby="why-drive-title"
+    >
       <div className="why-drive__container">
         <div className="why-drive__top">
           <div className="why-drive__heading">
             <div className="why-drive__eyebrow">
-              <span />
+              <span aria-hidden="true" />
               02 / Why DRIVE
             </div>
 
-            <h2>
+            <h2 id="why-drive-title">
               MORE THAN
               <br />
               <span>A RIDE.</span>
@@ -31,13 +42,21 @@ function WhyDrive() {
           <div className="why-drive__image">
             <img
               src={showroomImage}
-              alt="DRIVE Motorcycles showroom in Hollywood Florida"
+              alt="DRIVE Motorcycles showroom in Hollywood, Florida"
+              loading="lazy"
+              decoding="async"
             />
 
-            <div className="why-drive__image-overlay" />
+            <div
+              className="why-drive__image-overlay"
+              aria-hidden="true"
+            />
 
             <div className="why-drive__location-card">
-              <MapPin size={18} />
+              <MapPin
+                size={18}
+                aria-hidden="true"
+              />
 
               <div>
                 <span>Visit DRIVE</span>
@@ -45,16 +64,27 @@ function WhyDrive() {
               </div>
             </div>
 
-            <span className="why-drive__image-label">
+            <span
+              className="why-drive__image-label"
+              aria-hidden="true"
+            >
               SOUTH FLORIDA / USA
             </span>
           </div>
 
           <div className="why-drive__content">
             <div className="why-drive__feature">
-              <span className="why-drive__feature-number">01</span>
+              <span
+                className="why-drive__feature-number"
+                aria-hidden="true"
+              >
+                01
+              </span>
 
-              <div className="why-drive__feature-icon">
+              <div
+                className="why-drive__feature-icon"
+                aria-hidden="true"
+              >
                 <Bike size={22} />
               </div>
 
@@ -69,9 +99,17 @@ function WhyDrive() {
             </div>
 
             <div className="why-drive__feature">
-              <span className="why-drive__feature-number">02</span>
+              <span
+                className="why-drive__feature-number"
+                aria-hidden="true"
+              >
+                02
+              </span>
 
-              <div className="why-drive__feature-icon">
+              <div
+                className="why-drive__feature-icon"
+                aria-hidden="true"
+              >
                 <ShieldCheck size={22} />
               </div>
 
@@ -86,9 +124,17 @@ function WhyDrive() {
             </div>
 
             <div className="why-drive__feature">
-              <span className="why-drive__feature-number">03</span>
+              <span
+                className="why-drive__feature-number"
+                aria-hidden="true"
+              >
+                03
+              </span>
 
-              <div className="why-drive__feature-icon">
+              <div
+                className="why-drive__feature-icon"
+                aria-hidden="true"
+              >
                 <Headphones size={22} />
               </div>
 
@@ -102,14 +148,23 @@ function WhyDrive() {
               </div>
             </div>
 
-            <Link to="/contact" className="why-drive__cta">
+            <Link
+              to="/contact"
+              className="why-drive__cta"
+            >
               Contact DRIVE
-              <ArrowUpRight size={17} />
+              <ArrowUpRight
+                size={17}
+                aria-hidden="true"
+              />
             </Link>
           </div>
         </div>
 
-        <div className="why-drive__footer">
+        <div
+          className="why-drive__footer"
+          aria-hidden="true"
+        >
           <span>DRIVE MOTORCYCLES</span>
 
           <div />

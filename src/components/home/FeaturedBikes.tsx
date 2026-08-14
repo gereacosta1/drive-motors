@@ -1,20 +1,29 @@
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router'
+
 import { featuredProducts } from '../../data/products'
+
 import './FeaturedBikes.css'
 
 function FeaturedBikes() {
   return (
-    <section className="featured" id="inventory">
+    <section
+      className="featured"
+      id="inventory"
+      aria-labelledby="featured-title"
+    >
       <div className="featured__container">
         <div className="featured__header">
           <div>
             <div className="featured__eyebrow">
-              <span />
+              <span aria-hidden="true" />
               01 / Featured Inventory
             </div>
 
-            <h2 className="featured__title">
+            <h2
+              id="featured-title"
+              className="featured__title"
+            >
               FIND YOUR
               <br />
               <span>NEXT RIDE.</span>
@@ -27,9 +36,15 @@ function FeaturedBikes() {
               in South Florida.
             </p>
 
-            <Link to="/catalog" className="featured__view-all">
+            <Link
+              to="/catalog"
+              className="featured__view-all"
+            >
               View all inventory
-              <ArrowRight size={17} />
+              <ArrowRight
+                size={17}
+                aria-hidden="true"
+              />
             </Link>
           </div>
         </div>
@@ -46,20 +61,33 @@ function FeaturedBikes() {
                   src={product.image}
                   alt={`${product.name} ${product.color}`}
                   className="featured__image"
+                  width={768}
+                  height={960}
+                  loading="lazy"
+                  decoding="async"
                 />
 
-                <div className="featured__image-overlay" />
+                <div
+                  className="featured__image-overlay"
+                  aria-hidden="true"
+                />
 
-                <div className="featured__number">
+                <div
+                  className="featured__number"
+                  aria-hidden="true"
+                >
                   {String(index + 1).padStart(2, '0')}
                 </div>
 
                 <div className="featured__availability">
-                  <span />
+                  <span aria-hidden="true" />
                   Available
                 </div>
 
-                <div className="featured__open">
+                <div
+                  className="featured__open"
+                  aria-hidden="true"
+                >
                   <ArrowUpRight size={19} />
                 </div>
               </div>
@@ -92,7 +120,10 @@ function FeaturedBikes() {
         <div className="featured__mobile-action">
           <Link to="/catalog">
             Explore all motorcycles
-            <ArrowRight size={17} />
+            <ArrowRight
+              size={17}
+              aria-hidden="true"
+            />
           </Link>
         </div>
       </div>

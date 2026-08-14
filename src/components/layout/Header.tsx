@@ -21,8 +21,24 @@ function Header() {
     }
   }, [menuOpen])
 
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeMenu()
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+    }
+  }, [])
+
   const navClassName = ({ isActive }: { isActive: boolean }) =>
-    isActive ? 'header__nav-link header__nav-link--active' : 'header__nav-link'
+    isActive
+      ? 'header__nav-link header__nav-link--active'
+      : 'header__nav-link'
 
   return (
     <header className="header">
@@ -37,10 +53,15 @@ function Header() {
             src={driveLogo}
             alt="DRIVE Motorcycles"
             className="header__logo"
+            width={2176}
+            height={723}
+            loading="eager"
+            fetchPriority="high"
           />
         </Link>
 
         <nav
+          id="main-navigation"
           className={`header__nav ${
             menuOpen ? 'header__nav--open' : ''
           }`}
@@ -77,7 +98,7 @@ function Header() {
             onClick={closeMenu}
           >
             Explore Bikes
-            <ArrowUpRight size={18} />
+            <ArrowUpRight size={18} aria-hidden="true" />
           </Link>
         </nav>
 
@@ -87,7 +108,7 @@ function Header() {
           onClick={closeMenu}
         >
           Explore Bikes
-          <ArrowUpRight size={17} />
+          <ArrowUpRight size={17} aria-hidden="true" />
         </Link>
 
         <button
@@ -95,9 +116,14 @@ function Header() {
           className="header__menu-button"
           aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
           aria-expanded={menuOpen}
+          aria-controls="main-navigation"
           onClick={() => setMenuOpen((current) => !current)}
         >
-          {menuOpen ? <X size={27} /> : <Menu size={27} />}
+          {menuOpen ? (
+            <X size={27} aria-hidden="true" />
+          ) : (
+            <Menu size={27} aria-hidden="true" />
+          )}
         </button>
       </div>
     </header>

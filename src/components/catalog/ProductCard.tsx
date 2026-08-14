@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router'
+
 import type { Product } from '../../types/product'
 
 interface ProductCardProps {
@@ -12,7 +13,7 @@ function ProductCard({ product, index }: ProductCardProps) {
     <Link
       to={`/product/${product.slug}`}
       className="product-card"
-      aria-label={`View ${product.name}`}
+      aria-label={`View ${product.name} details`}
     >
       <div className="product-card__image-wrapper">
         <img
@@ -20,11 +21,18 @@ function ProductCard({ product, index }: ProductCardProps) {
           alt={`${product.name} ${product.color}`}
           className="product-card__image"
           loading="lazy"
+          decoding="async"
         />
 
-        <div className="product-card__overlay" />
+        <div
+          className="product-card__overlay"
+          aria-hidden="true"
+        />
 
-        <span className="product-card__index">
+        <span
+          className="product-card__index"
+          aria-hidden="true"
+        >
           {String(index + 1).padStart(2, '0')}
         </span>
 
@@ -35,12 +43,15 @@ function ProductCard({ product, index }: ProductCardProps) {
               : 'product-card__status--unavailable'
           }`}
         >
-          <span />
+          <span aria-hidden="true" />
 
           {product.available ? 'Available' : 'Unavailable'}
         </div>
 
-        <div className="product-card__open">
+        <div
+          className="product-card__open"
+          aria-hidden="true"
+        >
           <ArrowUpRight size={19} />
         </div>
       </div>
@@ -72,7 +83,10 @@ function ProductCard({ product, index }: ProductCardProps) {
 
         <span className="product-card__view">
           View motorcycle
-          <ArrowUpRight size={14} />
+          <ArrowUpRight
+            size={14}
+            aria-hidden="true"
+          />
         </span>
       </div>
     </Link>

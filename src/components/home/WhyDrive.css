@@ -89,7 +89,7 @@
 
   margin-bottom: 22px;
 
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.70);
 
   font-size: 10px;
   font-weight: 800;
@@ -141,7 +141,7 @@
 
   margin: 0 0 8px;
 
-  color: rgba(255, 255, 255, 0.58);
+  color: rgba(255, 255, 255, 0.70);
 
   font-size: 15px;
   line-height: 1.75;
@@ -274,7 +274,7 @@
 }
 
 .why-drive__location-card span {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.68);
 
   font-size: 9px;
   font-weight: 800;
@@ -395,7 +395,7 @@
 .why-drive__feature:hover
 .why-drive__feature-icon {
   background: var(--color-primary);
-  color: #fff;
+  color: #090909;
 
   border-color: var(--color-primary);
 
@@ -423,7 +423,7 @@
   margin: 0;
 
   color:
-    rgba(255, 255, 255, 0.52);
+    rgba(255, 255, 255, 0.66);
 
   font-size: 14px;
   line-height: 1.75;
@@ -449,7 +449,7 @@
   padding: 0 22px;
 
   background: var(--color-primary);
-  color: #fff;
+  color: #090909;
 
   font-size: 11px;
   font-weight: 800;
@@ -489,6 +489,12 @@
 
 .why-drive__cta:hover svg {
   transform: translate(3px, -3px);
+}
+
+
+.why-drive__cta:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
 }
 
 
@@ -809,5 +815,33 @@
 
   .why-drive__footer {
     gap: 12px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .why-drive__image img,
+  .why-drive__feature,
+  .why-drive__feature-icon,
+  .why-drive__cta,
+  .why-drive__cta svg {
+    transition: none;
+  }
+
+  .why-drive__image:hover img {
+    transform: scale(1.001);
+  }
+
+  .why-drive__feature:hover {
+    padding-left: 0;
+  }
+
+  .why-drive__feature:hover .why-drive__feature-icon,
+  .why-drive__cta:hover,
+  .why-drive__cta:hover svg {
+    transform: none;
   }
 }

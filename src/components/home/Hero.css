@@ -246,7 +246,7 @@
   padding: 0 26px;
 
   background: var(--color-primary);
-  color: #fff;
+  color: #090909;
 
   font-size: 12px;
   font-weight: 800;
@@ -270,6 +270,7 @@
   transform: translateY(-3px);
 
   background: var(--color-primary-hover);
+  color: #090909;
 
   box-shadow:
     0 14px 36px
@@ -327,6 +328,12 @@
   color: #fff;
 
   border-color: var(--color-primary);
+}
+
+.hero__primary:focus-visible,
+.hero__secondary:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
 }
 
 
@@ -713,6 +720,11 @@
 
 .hero__bike-link:hover svg {
   transform: translateX(4px);
+}
+
+.hero__bike-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
 }
 
 
@@ -1191,5 +1203,41 @@
 
   .hero__bike-footer {
     padding-inline: 15px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bike-card,
+  .hero__bike-image,
+  .hero__primary,
+  .hero__primary svg,
+  .hero__secondary,
+  .hero__bike-link,
+  .hero__bike-link svg {
+    transition: none;
+  }
+
+  .hero__bike-card:hover,
+  .hero__primary:hover {
+    transform: none;
+  }
+
+  .hero__bike-card:hover .hero__bike-image {
+    transform: scale(1.01);
+  }
+
+  .hero__primary:hover svg,
+  .hero__bike-link:hover svg {
+    transform: none;
+  }
+
+  .fade-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
