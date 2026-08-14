@@ -5,6 +5,10 @@ import titanRed from '../assets/products/titan-250-red.jpeg'
 import carreraBlue from '../assets/products/carrera-250-blue.jpeg'
 import carreraGreen from '../assets/products/carrera-250-green.jpeg'
 
+import xmt250Red from '../assets/products/xmt-250-red.jpeg'
+import tank200Black from '../assets/products/tank-200-black.jpeg'
+import raven250Green from '../assets/products/raven-250-green.jpeg'
+
 import bike05Black from '../assets/products/bike-05-black.jpeg'
 import bike06Red from '../assets/products/bike-06-red.jpeg'
 import bike08White from '../assets/products/bike-08-white.jpeg'
@@ -134,6 +138,48 @@ export const products: Product[] = [
     image: bike10Red,
     description:
       '250CC motorcycle available at DRIVE Motorcycles in South Florida.',
+    featured: false,
+    available: true,
+  },
+
+  {
+    id: 10,
+    slug: 'xmt-250-red',
+    name: 'XMT 250',
+    brand: 'XMT',
+    displacement: '250CC',
+    color: 'Red',
+    image: xmt250Red,
+    description:
+      'XMT 250 motorcycle available at DRIVE Motorcycles in South Florida.',
+    featured: false,
+    available: true,
+  },
+
+  {
+    id: 11,
+    slug: 'tank-200-black',
+    name: 'Tank 200',
+    brand: 'Tank',
+    displacement: '200CC',
+    color: 'Black',
+    image: tank200Black,
+    description:
+      'Tank 200 motorcycle available at DRIVE Motorcycles in South Florida.',
+    featured: false,
+    available: true,
+  },
+
+  {
+    id: 12,
+    slug: 'raven-250-green',
+    name: 'Raven 250',
+    brand: 'Raven',
+    displacement: '250CC',
+    color: 'Green',
+    image: raven250Green,
+    description:
+      'Raven 250 motorcycle available at DRIVE Motorcycles in South Florida.',
     featured: false,
     available: true,
   },
