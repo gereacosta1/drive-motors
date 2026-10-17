@@ -1,9 +1,29 @@
-import { ArrowDown, ArrowRight, MapPin } from 'lucide-react'
+
+import {
+  ArrowDown,
+  ArrowRight,
+  MapPin,
+} from 'lucide-react'
+
 import { Link } from 'react-router'
 
 import falconImage from '../../assets/products/falcon-250-red.jpeg'
 
 import './Hero.css'
+
+/* =========================================================
+   DRIVE MOTORCYCLES
+   HERO SECTION — V2
+
+   Premium motorcycle dealership design
+   Black / White / Orange
+
+   Desktop:
+   Editorial headline + featured motorcycle
+
+   Mobile:
+   Headline -> Motorcycle -> Information
+   ========================================================= */
 
 function Hero() {
   return (
@@ -11,25 +31,43 @@ function Hero() {
       className="hero"
       aria-labelledby="hero-title"
     >
-      {/* Decorative background */}
-      <div className="hero__grid" aria-hidden="true" />
+      {/* ===================================================
+          AMBIENT BACKGROUND
+         =================================================== */}
+
+      <div
+        className="hero__grid"
+        aria-hidden="true"
+      />
+
       <div
         className="hero__glow hero__glow--left"
         aria-hidden="true"
       />
+
       <div
         className="hero__glow hero__glow--right"
         aria-hidden="true"
       />
 
-      {/* Main content */}
+      {/* ===================================================
+          MAIN HERO CONTAINER
+         =================================================== */}
+
       <div className="hero__container">
-        <div className="hero__content">
+
+        {/* ===============================================
+            INTRO / HEADLINE
+           =============================================== */}
+
+        <div className="hero__intro">
+
           <div className="hero__eyebrow fade-up">
             <span
               className="hero__eyebrow-line"
               aria-hidden="true"
             />
+
             South Florida Motorcycle Dealer
           </div>
 
@@ -37,22 +75,173 @@ function Hero() {
             id="hero-title"
             className="hero__title fade-up"
           >
-            BUILT TO
-            <br />
-            <span>MOVE.</span>
+            <span className="hero__title-main">
+              BUILT TO
+            </span>
+
+            <span className="hero__title-outline">
+              MOVE.
+            </span>
           </h1>
 
+          {/* Editorial brand signature */}
+
+          <div
+            className="hero__edition fade-up"
+            aria-label="DRIVE motorcycle collection"
+          >
+            <span
+              className="hero__edition-mark"
+              aria-hidden="true"
+            />
+
+            DRIVE / MOTORCYCLES / FL
+          </div>
+
+        </div>
+
+        {/* ===============================================
+            FEATURED MOTORCYCLE VISUAL
+           =============================================== */}
+
+        <div className="hero__visual fade-up">
+
+          <div className="hero__bike-card">
+
+            {/* Motorcycle photograph */}
+
+            <div className="hero__bike-image-wrap">
+
+              <img
+                src={falconImage}
+                alt="Red Falcon 250 motorcycle"
+                className="hero__bike-image"
+                width={768}
+                height={960}
+                loading="eager"
+                fetchPriority="high"
+              />
+
+              {/* Gradient overlay */}
+
+              <div
+                className="hero__bike-gradient"
+                aria-hidden="true"
+              />
+
+              {/* Background displacement graphic */}
+
+              <span
+                className="hero__visual-number"
+                aria-hidden="true"
+              >
+                250
+              </span>
+
+            </div>
+
+            {/* Motorcycle top information */}
+
+            <div className="hero__bike-header">
+
+              <span className="hero__bike-kicker">
+
+                <span
+                  className="hero__live-dot"
+                  aria-hidden="true"
+                />
+
+                Model Spotlight
+              </span>
+
+              <span className="hero__bike-displacement">
+                250 CC
+              </span>
+
+            </div>
+
+            {/* Motorcycle identification and CTA */}
+
+            <div className="hero__bike-footer">
+
+              <div className="hero__bike-identification">
+
+                <span>
+                  Discover The Ride
+                </span>
+
+                <strong>
+                  FALCON 250
+                </strong>
+
+              </div>
+
+              <Link
+                to="/catalog"
+                className="hero__bike-link"
+                aria-label="Explore Falcon 250 in the motorcycle catalog"
+              >
+                Explore
+
+                <ArrowRight
+                  size={16}
+                  strokeWidth={2}
+                  aria-hidden="true"
+                />
+              </Link>
+
+            </div>
+
+            {/* Decorative corners */}
+
+            <span
+              className="hero__bike-corner hero__bike-corner--top"
+              aria-hidden="true"
+            />
+
+            <span
+              className="hero__bike-corner hero__bike-corner--bottom"
+              aria-hidden="true"
+            />
+
+          </div>
+
+          {/* Vertical brand label */}
+
+          <span
+            className="hero__vertical-label"
+            aria-hidden="true"
+          >
+            DRIVE — BUILT TO MOVE
+          </span>
+
+        </div>
+
+        {/* ===============================================
+            DESCRIPTION AND ACTIONS
+           =============================================== */}
+
+        <div className="hero__details">
+
+          {/* Main description */}
+
           <p className="hero__description fade-up">
-            Find your next ride at DRIVE. Explore our selection of
-            250CC motorcycles built for the streets of South Florida.
+            Find your next ride at DRIVE.
+            Explore our selection of 250CC
+            motorcycles built for the streets
+            of South Florida.
           </p>
 
+          {/* Primary actions */}
+
           <div className="hero__actions fade-up">
+
             <Link
               to="/catalog"
               className="hero__primary"
             >
               View Inventory
+
               <ArrowRight
                 size={18}
                 strokeWidth={2}
@@ -66,20 +255,39 @@ function Hero() {
             >
               <MapPin
                 size={16}
+                strokeWidth={1.8}
                 aria-hidden="true"
               />
+
               Visit Our Store
             </Link>
+
           </div>
 
+          {/* =============================================
+              DEALERSHIP INFORMATION
+             ============================================= */}
+
           <div className="hero__meta fade-up">
+
+            {/* Motorcycle category */}
+
             <div className="hero__meta-item">
-              <span>01</span>
+
+              <span>
+                01
+              </span>
 
               <div>
-                <strong>250CC</strong>
-                <small>Motorcycles</small>
+                <strong>
+                  250CC
+                </strong>
+
+                <small>
+                  Motorcycles
+                </small>
               </div>
+
             </div>
 
             <div
@@ -87,92 +295,50 @@ function Hero() {
               aria-hidden="true"
             />
 
+            {/* Dealership location */}
+
             <div className="hero__meta-item">
-              <span>02</span>
 
-              <div>
-                <strong>Hollywood</strong>
-                <small>Florida</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Motorcycle visual */}
-        <div className="hero__visual">
-          <div
-            className="hero__visual-number"
-            aria-hidden="true"
-          >
-            250
-          </div>
-
-          <div className="hero__bike-card">
-            <div className="hero__bike-header">
-              <div>
-                <span>Featured Motorcycle</span>
-                <strong>Falcon 250</strong>
-              </div>
-
-              <span className="hero__bike-index">
-                01 / 04
+              <span>
+                02
               </span>
-            </div>
 
-            <div className="hero__bike-image-wrap">
-              <img
-                src={falconImage}
-                alt="Red Falcon 250 motorcycle"
-                className="hero__bike-image"
-                width={768}
-                height={960}
-                loading="eager"
-                fetchPriority="high"
-              />
-
-              <div
-                className="hero__bike-gradient"
-                aria-hidden="true"
-              />
-            </div>
-
-            <div className="hero__bike-footer">
               <div>
-                <span>Engine</span>
-                <strong>250 CC</strong>
+                <strong>
+                  Hollywood
+                </strong>
+
+                <small>
+                  Florida
+                </small>
               </div>
 
-              <Link
-                to="/catalog"
-                className="hero__bike-link"
-                aria-label="Explore Falcon 250 motorcycles"
-              >
-                Explore
-                <ArrowRight
-                  size={16}
-                  aria-hidden="true"
-                />
-              </Link>
             </div>
+
           </div>
 
-          <div
-            className="hero__vertical-label"
-            aria-hidden="true"
-          >
-            DRIVE / MOTORCYCLES / FL
-          </div>
         </div>
+
       </div>
 
-      {/* Bottom strip */}
+      {/* ===================================================
+          BOTTOM EDITORIAL STRIP
+         =================================================== */}
+
       <div className="hero__bottom">
+
         <div className="hero__scroll">
+
           <ArrowDown
             size={15}
+            strokeWidth={1.8}
             aria-hidden="true"
           />
-          <span>Scroll to explore</span>
+
+          <span>
+            Scroll to Explore
+          </span>
+
         </div>
 
         <div
@@ -183,7 +349,9 @@ function Hero() {
         <span className="hero__location">
           Hollywood · Florida
         </span>
+
       </div>
+
     </section>
   )
 }

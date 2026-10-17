@@ -1,24 +1,57 @@
+
 import { ArrowUpRight } from 'lucide-react'
 import { Link } from 'react-router'
 
 import type { Product } from '../../types/product'
+
+/* =========================================================
+   DRIVE MOTORCYCLES
+   PRODUCT CARD — V2
+
+   Motorcycle Catalog Card
+
+   Features:
+   - Product photography
+   - Availability status
+   - Model identification
+   - Engine and color details
+   - Product description
+   - Individual product navigation
+   ========================================================= */
 
 interface ProductCardProps {
   product: Product
   index: number
 }
 
-function ProductCard({ product, index }: ProductCardProps) {
+function ProductCard({
+  product,
+  index,
+}: ProductCardProps) {
+  const productNumber = String(index + 1).padStart(2, '0')
+
+  const productPath = `/product/${product.slug}`
+
+  const isAvailable = product.available
+
+  const availabilityLabel = isAvailable
+    ? 'Available'
+    : 'Unavailable'
+
   return (
     <Link
-      to={`/product/${product.slug}`}
+      to={productPath}
       className="product-card"
-      aria-label={`View ${product.name} details`}
+      aria-label={`View ${product.name} details. ${availabilityLabel}.`}
     >
+      {/* ===============================================
+          MOTORCYCLE IMAGE
+         =============================================== */}
+
       <div className="product-card__image-wrapper">
         <img
           src={product.image}
-          alt={`${product.name} ${product.color}`}
+          alt={`${product.name} in ${product.color}`}
           className="product-card__image"
           loading="lazy"
           decoding="async"
@@ -29,32 +62,46 @@ function ProductCard({ product, index }: ProductCardProps) {
           aria-hidden="true"
         />
 
+        {/* Product identification */}
+
         <span
           className="product-card__index"
           aria-hidden="true"
         >
-          {String(index + 1).padStart(2, '0')}
+          {productNumber}
         </span>
 
+        {/* Availability status */}
+
         <div
-          className={`product-card__status ${
-            product.available
+          className={[
+            'product-card__status',
+            isAvailable
               ? 'product-card__status--available'
-              : 'product-card__status--unavailable'
-          }`}
+              : 'product-card__status--unavailable',
+          ].join(' ')}
         >
           <span aria-hidden="true" />
 
-          {product.available ? 'Available' : 'Unavailable'}
+          {availabilityLabel}
         </div>
+
+        {/* Open product indicator */}
 
         <div
           className="product-card__open"
           aria-hidden="true"
         >
-          <ArrowUpRight size={19} />
+          <ArrowUpRight
+            size={20}
+            strokeWidth={1.8}
+          />
         </div>
       </div>
+
+      {/* ===============================================
+          PRODUCT INFORMATION
+         =============================================== */}
 
       <div className="product-card__content">
         <div className="product-card__heading">
@@ -65,26 +112,40 @@ function ProductCard({ product, index }: ProductCardProps) {
           <h3>{product.name}</h3>
         </div>
 
+        {/* Specifications */}
+
         <div className="product-card__specs">
           <div>
             <span>Engine</span>
-            <strong>{product.displacement}</strong>
+
+            <strong>
+              {product.displacement}
+            </strong>
           </div>
 
           <div>
             <span>Color</span>
-            <strong>{product.color}</strong>
+
+            <strong>
+              {product.color}
+            </strong>
           </div>
         </div>
       </div>
+
+      {/* ===============================================
+          DESCRIPTION AND ACTION
+         =============================================== */}
 
       <div className="product-card__description">
         <p>{product.description}</p>
 
         <span className="product-card__view">
-          View motorcycle
+          View Motorcycle
+
           <ArrowUpRight
-            size={14}
+            size={15}
+            strokeWidth={1.8}
             aria-hidden="true"
           />
         </span>
